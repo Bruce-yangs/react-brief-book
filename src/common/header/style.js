@@ -63,7 +63,7 @@ export const SearchWrapper = styled.div`
   .slide-exit-active {
     width: 160px;
   }
-  .iconfont {
+  .icon-fangdajing {
     position: absolute;
     right: 5px;
     display: block;
@@ -148,6 +148,14 @@ export const SearcInfoSwitch = styled.span`
   font-size: 13px;
   color: #969696;
   cursor: pointer;
+  .spin{
+    display:block;
+    float:left;
+    margin-right: 2px;
+    transition: all .3s ease-in;
+    transform-origin: center center;
+
+  }
 
 `;
 

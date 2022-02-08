@@ -21,22 +21,28 @@ import {
 class Header extends Component {
   
   getListArea() {
-    const { focused, list,page,mouseIn,totalPages,onMouseEnter,onMouseLeave,onClickHandle } = this.props;
+    const { focused, list,page,mouseIn,totalPage,onMouseEnter,onMouseLeave,onClickHandle } = this.props;
     const newList = list.toJS()
     const pageList = []
-    for (let i = (page-1)*10; i < page*10; i++ ) {
-      pageList.push(
-        <SearcInfoItem key={newList[i]}>{newList[i]}</SearcInfoItem>
-      )
+    if(newList.length){
+      for (let i = (page-1)*10; i < page*10; i++ ) {
+        if(newList[i]) {
+          pageList.push(
+            <SearcInfoItem key={newList[i]}>{newList[i]}</SearcInfoItem>
+          );
+        }
+        
+      }
     }
-   
-
     if (focused || mouseIn) {
       return (
         <SearcInfo onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
           <SearcInfoTitle>
             热门搜索
-            <SearcInfoSwitch onClick={()=>onClickHandle(page,totalPages)}>换一批</SearcInfoSwitch>
+
+            <SearcInfoSwitch onClick={()=>onClickHandle(page,totalPage,this.spinIcon)}>
+            <i className="iconfont icon-shuaxin spin" ref={(icon)=>{this.spinIcon = icon}}></i> 
+              换一批</SearcInfoSwitch>
           </SearcInfoTitle>
           <div>
             {pageList}
@@ -51,7 +57,7 @@ class Header extends Component {
     }
   }
   render() {
-    const { focused,onFocusAndBlurInput } = this.props;
+    const { focused,onFocusAndBlurInput,list } = this.props;
 
     return (
       <HeaderWrapper>
@@ -71,7 +77,7 @@ class Header extends Component {
           className="slide"
           > */}
             <NavSearch
-              onFocus={() => onFocusAndBlurInput(1)}
+              onFocus={() => onFocusAndBlurInput(1,list)}
               onBlur={() => onFocusAndBlurInput(2)}
               className={focused ? "focused" : ""}
             ></NavSearch>
@@ -103,32 +109,40 @@ const mapStateToProps = (state) => {
     list: state.getIn(["header", "list"]),
     page: state.getIn(["header", "page"]),
     mouseIn: state.getIn(["header", "mouseIn"]),
-    totalPages: state.getIn(["header", "totalPages"]) 
+    totalPage: state.getIn(["header", "totalPage"]) 
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFocusAndBlurInput(val) {
+    onFocusAndBlurInput(val,list) {
       const active = {
         type: actionTypes.SEARCH_FOCUS,
         val,
       };
       dispatch(active);
-      dispatch(actionCreators.getList());
+      (val === 1 && list.size===0) && dispatch(actionCreators.getList());
     },
     onMouseEnter() {
-      console.log(1);
       dispatch(actionCreators.mouseEnter());
 
     },
     onMouseLeave() {
-      console.log(2);
       dispatch(actionCreators.mouseLeave());
 
     },
-    onClickHandle(page,totalPages) {
-      console.log(3);
-      dispatch(actionCreators.changePage());
+    onClickHandle(page,totalPage,spin) {
+      let originAngle = spin.style.transform.replace(/[^0-9]/ig,'')
+      if(originAngle) {
+        originAngle = parseInt(originAngle,10);
+      } else {
+        originAngle = 0;
+      }
+    spin.style.transform = `rotate(${originAngle+360}deg)`
+      if(page<totalPage) {
+        dispatch(actionCreators.changePage(page+1));
+      } else{
+        dispatch(actionCreators.changePage(1));
+      }
 
     }
   };
