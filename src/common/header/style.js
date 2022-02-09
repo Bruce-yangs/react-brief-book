@@ -133,7 +133,7 @@ export const SearcInfo = styled.div`
   top: 58px;
   padding: 0 20px 10px 20px;
   width: 240px;
-  
+  background-color:#ffffff;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 `;
 export const SearcInfoTitle = styled.div`
