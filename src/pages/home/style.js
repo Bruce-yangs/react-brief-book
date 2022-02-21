@@ -162,7 +162,6 @@ export const WriterHeader = styled.div`
     color: #969696;
   }
 `;
-export const WriterList = styled.div``;
 export const WriterItem = styled.div`
   display: flex;
   justify-content: space-around;
@@ -192,3 +191,15 @@ export const WriterItem = styled.div`
   }
   
 `;
+export const LoadMore = styled.div`
+  width:100%;
+  height:40px;
+  line-height: 40px;
+  margin: 20px 0;
+  background:#a5a5a5;
+  text-align: center;
+  border-radius: 20px;
+  color:#fff;
+  cursor: pointer;
+`;
+
