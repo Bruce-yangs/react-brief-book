@@ -12,8 +12,9 @@ function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <Header></Header>
         <BrowserRouter>
+        <Header></Header>
+
           <Routes>
             <Route   path="/" element={<Home/>}></Route>
             <Route  path="/detail" element={ <Detail/>}></Route>

@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { RecommendItem, RecommendDownload } from "../style";
 import qrcode from "/src/statics/qrcode.png";
 import qrcode2 from "/src/statics/qrcode2.png";
 
-class Recommend extends Component {
+class Recommend extends PureComponent {
   render() {
     const { list } = this.props;
     return (

@@ -1,5 +1,7 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
 import * as actionTypes from "./store/actionType";
 import * as actionCreators from "./store/actionCreators";
 // import { CSSTransition } from "react-transition-group";
@@ -18,7 +20,7 @@ import {
   SearcInfoItem,
 } from "./style";
 
-class Header extends Component {
+class Header extends PureComponent {
   
   getListArea() {
     const { focused, list,page,mouseIn,totalPage,onMouseEnter,onMouseLeave,onClickHandle } = this.props;
@@ -61,7 +63,11 @@ class Header extends Component {
 
     return (
       <HeaderWrapper>
-        <Logo />
+
+        <Link to="/">
+          <Logo />
+        </Link>
+        
         {/* <img src={Logo} alt="" /> */}
         <Nav>
           <NavItem className="left active">首页</NavItem>

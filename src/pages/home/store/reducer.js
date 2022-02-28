@@ -54,8 +54,8 @@ const defaultState = fromJS({
     // {
     //   id: 1,
     //   title: "我的极简生活省出了一套房",
-    //   desc: "我小时候家里穷，从那时起就知道省钱，每年过年长辈给的压岁钱我都会存起来，慢慢的节约省钱存钱成了我的生活习惯。我和老公每月有一万五的工资收入，一...",
-    //   imgUrl: img1,
+    //   desc: "我小时候家里穷，从~那时起就知道省钱，每年过年长辈给的压岁钱我都会存起来，慢慢的节约省钱存钱成了我的生活习惯。我和老公每月有一万五的工资收入，一...",
+    //   imgUrl: img1,~
     // },
     // {
     //   id: 2,
@@ -164,6 +164,7 @@ const defaultState = fromJS({
       name: "格列柯南",
     },
   ],
+  showScrollTop: false
 });
 
 export default (state = defaultState, action) => {
@@ -181,6 +182,8 @@ export default (state = defaultState, action) => {
       // authorList: fromJS(action.authorList),
       articleList: fromJS(action.articleList),
     });
+    case  actionTypes.TOGGLE_SCROLL_TOP:
+      return state.set('showScrollTop',action.isShow);
     case  actionTypes.ADD_HOME_LIST:
       return state.set('articleList',state.get('articleList').concat(action.articleList));
     // return state.merge({
@@ -201,3 +204,7 @@ export default (state = defaultState, action) => {
 
   return state;
 };
+
+
+
+

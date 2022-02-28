@@ -141,7 +141,7 @@ export const RecommendDownload = styled.a`
 
 export const WriterWrapper = styled.div`
   height: 320px;
-  .all{
+  .all {
     display: block;
     text-decoration-line: none;
     text-align: center;
@@ -168,38 +168,54 @@ export const WriterItem = styled.div`
   margin-top: 10px;
   .img {
     flex: 0 0 48px;
-    width:48px;
-    height:48px;
-    border-radius:50%;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
     margin-right: 10px;
   }
-  .info{
-    .title{
+  .info {
+    .title {
       padding-top: 5px;
       font-size: 14px;
     }
-    .desc{
+    .desc {
       margin-top: 2px;
       font-size: 12px;
       color: #969696;
     }
   }
-  .attention{
+  .attention {
     font-size: 13px;
     color: #42c02e;
     cursor: pointer;
   }
-  
 `;
 export const LoadMore = styled.div`
-  width:100%;
-  height:40px;
+  width: 100%;
+  height: 40px;
   line-height: 40px;
   margin: 20px 0;
-  background:#a5a5a5;
+  background: #a5a5a5;
   text-align: center;
   border-radius: 20px;
-  color:#fff;
+  color: #fff;
   cursor: pointer;
 `;
 
+export const BackTop = styled.div`
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover{
+    transform: scale(1.1)
+  }
+`;
