@@ -15,6 +15,7 @@ export const Content = styled.div`
   color:#2f2f2f;
   img{
       width:100%;
+      height: 300px;
   }
   p{
       font-size: 16px;

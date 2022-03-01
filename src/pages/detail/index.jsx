@@ -1,15 +1,45 @@
-import React, { Component } from "react";
+import React, { PureComponent,Component } from "react";
+import { connect } from "react-redux";
+// import { useParams } from 'react-router-dom'
 import { DetailWrapper, Header, Content } from "./style";
-class Detail extends React.Component {
+import { actionCreators } from "./store";
+// function withRouter(Component) {
+//   return (props) => (
+//     <Component
+//       {...props}
+//       params={useParams()}
+//     />
+//   );
+// }
+
+// const params = useParams();
+// console.log(params.id)
+class Detail extends Component {
   render() {
+   
+    
     return (
       <DetailWrapper>
-        <Header>我的极简生活省出了一套房</Header>
-        <Content>
-          </Content>
+        <Header>{this.props.title}</Header>
+        <Content
+          dangerouslySetInnerHTML={{ __html: this.props.content }}
+        ></Content>
       </DetailWrapper>
     );
   }
+  componentDidMount() {
+   console.log(this.props);
+    this.props.getDetail(this.props.params.id);
+  }
 }
+const mapState = (state) => ({
+  title: state.getIn(["detail", "title"]),
+  content: state.getIn(["detail", "content"]),
+});
 
-export default Detail;
+const mapDispatch = (dispatch) => ({
+  getDetail(id) {
+    dispatch(actionCreators.getDetail(id))
+  },
+});
+export default connect(mapState, mapDispatch)(Detail);

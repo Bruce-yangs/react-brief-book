@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route,Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes,useNavigate,useParams } from "react-router-dom";
 import Header from "./common/header/index.jsx";
 import store from "./store";
 import Detail from "./pages/detail";
 import Home from "./pages/home";
 
+const WrapComps = (props)=> {
+  let navigate = useNavigate();
+  let params = useParams();
+  let Element = props.el
+  return <Element params={params} navigate={navigate} {...props} />
+}
 function App() {
   const [count, setCount] = useState(0);
 
@@ -13,11 +19,11 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <BrowserRouter>
-        <Header></Header>
+          <Header></Header>
 
           <Routes>
-            <Route   path="/" element={<Home/>}></Route>
-            <Route  path="/detail" element={ <Detail/>}></Route>
+            <Route path="/" exact element={<Home />}></Route>
+            <Route path="/detail/:id" exact element={<WrapComps el={Detail} />}></Route>
           </Routes>
         </BrowserRouter>
       </Provider>
