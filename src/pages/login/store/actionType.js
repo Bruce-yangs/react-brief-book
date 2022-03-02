@@ -1,0 +1,3 @@
+
+export const CHANGE_LOGIN_DATA  = 'login/CHANGE_LOGIN_DATA'
+export const CHANGE_LOGOUT_DATA  = 'login/CHANGE_LOGOUT_DATA'
