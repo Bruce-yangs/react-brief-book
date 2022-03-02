@@ -5,6 +5,7 @@ import Header from "./common/header/index.jsx";
 import store from "./store";
 import Detail from "./pages/detail";
 import Home from "./pages/home";
+import Login from "./pages/login";
 
 const WrapComps = (props)=> {
   let navigate = useNavigate();
@@ -22,6 +23,7 @@ function App() {
           <Header></Header>
 
           <Routes>
+            <Route path="/login" exact element={<Login />}></Route>
             <Route path="/" exact element={<Home />}></Route>
             <Route path="/detail/:id" exact element={<WrapComps el={Detail} />}></Route>
           </Routes>
