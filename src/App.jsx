@@ -6,6 +6,7 @@ import store from "./store";
 import Detail from "./pages/detail";
 import Home from "./pages/home";
 import Login from "./pages/login";
+import Write from "./pages/write";
 
 const WrapComps = (props)=> {
   let navigate = useNavigate();
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/login" exact element={<Login />}></Route>
             <Route path="/" exact element={<Home />}></Route>
+            <Route path="/write" exact element={<Write />}></Route>
             <Route path="/detail/:id" exact element={<WrapComps el={Detail} />}></Route>
           </Routes>
         </BrowserRouter>

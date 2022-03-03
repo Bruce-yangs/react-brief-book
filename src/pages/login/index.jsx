@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Navigate,Route } from "react-router-dom";
 import { LoginWrapper,LoginBox,Input,Button } from "./style";
 import { actionCreators } from "./store";
+import signIbg from "../../statics/sign_in_bg.png";
 
 class Login extends PureComponent {
   render() {
@@ -10,11 +11,15 @@ class Login extends PureComponent {
     if(!isLogin) {
       return <LoginWrapper>
         <LoginBox>
+          <div className="left">
+            <img src={signIbg} width="400px" />
+          </div>
+          <div className="right">
             <h3 style={{textAlign: 'center'}}>登录</h3>
             <Input placeholder="账号" ref={(input)=>{this.account = input}}></Input>
             <Input placeholder="密码" type='password' ref={(input)=>{this.password = input}}></Input>
             <Button onClick={()=>this.props.login(this.account,this.password)}>登录</Button>
-        </LoginBox>
+       </div> </LoginBox>
     </LoginWrapper>
     }else {
       return <Navigate replace to="/" />
