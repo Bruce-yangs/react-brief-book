@@ -22,7 +22,7 @@ export const Nav = styled.div`
   height: 100%;
   padding-right: 70px;
   box-sizing: border-box;
-  margin: 0 auto;
+  margin:-8px auto 0;
 `;
 
 export const NavItem = styled.div`
