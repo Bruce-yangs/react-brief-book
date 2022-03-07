@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes,useNavigate,useParams } from "react-router-dom";
 import Header from "./common/header/index.jsx";
 import store from "./store";
-import Detail from "./pages/detail";
+import Detail from "./pages/detail/loadable";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Write from "./pages/write";
