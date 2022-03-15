@@ -14,10 +14,8 @@ import { actionCreators } from "./store";
 
 // const params = useParams();
 // console.log(params.id)
-class Detail extends Component {
+class Detail extends PureComponent {
   render() {
-   
-    
     return (
       <DetailWrapper>
         <Header>{this.props.title}</Header>

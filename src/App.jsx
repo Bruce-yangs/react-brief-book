@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useState,React,lazy } from "react";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes,useNavigate,useParams } from "react-router-dom";
 import Header from "./common/header/index.jsx";
 import store from "./store";
-import Detail from "./pages/detail/loadable";
+import Detail from "./pages/detail/loadable.jsx";
 import Home from "./pages/home";
 import Login from "./pages/login";
 import Write from "./pages/write";
+
+
+// const Detail = lazy(() => import('./pages/detail'));
 
 const WrapComps = (props)=> {
   let navigate = useNavigate();

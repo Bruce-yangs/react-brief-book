@@ -4,6 +4,7 @@ specifiers:
   '@vitejs/plugin-react': ^1.0.7
   axios: ^0.25.0
   immutable: ^4.0.0
+  postcss-px-to-viewport: ^1.1.1
   react: ^17.0.2
   react-dom: ^17.0.2
   react-loadable: ^5.5.0
@@ -32,6 +33,7 @@ dependencies:
 
 devDependencies:
   '@vitejs/plugin-react': 1.1.4
+  postcss-px-to-viewport: 1.1.1
   vite: 2.7.13
 
 packages:
@@ -791,7 +793,6 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=}
     engines: {node: '>=0.10.0'}
-    dev: false
 
   /path-parse/1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
@@ -804,6 +805,13 @@ packages:
   /picomatch/2.3.1:
     resolution: {integrity: sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==}
     engines: {node: '>=8.6'}
+    dev: true
+
+  /postcss-px-to-viewport/1.1.1:
+    resolution: {integrity: sha512-2x9oGnBms+e0cYtBJOZdlwrFg/mLR4P1g2IFu7jYKvnqnH/HLhoKyareW2Q/x4sg0BgklHlP1qeWo2oCyPm8FQ==}
+    dependencies:
+      object-assign: 4.1.1
+      postcss: 8.4.5
     dev: true
 
   /postcss-value-parser/4.2.0:
