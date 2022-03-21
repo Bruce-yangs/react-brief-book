@@ -23,11 +23,13 @@ class Detail extends PureComponent {
           dangerouslySetInnerHTML={{ __html: this.props.content }}
         ></Content>
       </DetailWrapper>
-    );
+    ); 
   }
   componentDidMount() {
    console.log(this.props);
-    this.props.getDetail(this.props.params.id);
+   console.log( window.location.pathname.split('/')[2] );
+    this.props.getDetail(window.location.pathname.split('/')[2]);
+    // this.props.getDetail(this.props.params.id);
   }
 }
 const mapState = (state) => ({
